@@ -177,7 +177,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.06) }
 .promo-inner { background: linear-gradient(135deg, var(--fg) 0%, color-mix(in srgb, var(--fg) 85%, var(--accent)) 100%); border-radius: 1.25rem; padding: clamp(2.5rem, 5vw, 4rem); display: flex; align-items: center; justify-content: space-between; gap: 2rem; color: var(--bg); flex-wrap: wrap }
 .promo h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: .5rem }
 .promo p { color: color-mix(in srgb, var(--bg) 60%, transparent); font-size: .95rem; max-width: 400px }
-.promo-code { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: .5rem; background: rgba(255,255,255,.1); border: 1px dashed rgba(255,255,255,.25); font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: .08em; margin-top: 1rem }
+.promo-code { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: .5rem; background: rgba(255,255,255,.1); border: 1px dashed rgba(255,255,255,.25); font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: .08em; margin-top: 1rem; cursor: pointer }
 .promo-btn { background: #fff; color: var(--fg); padding: .85rem 2.25rem; border-radius: .625rem; font-weight: 700; font-size: .95rem; border: none; transition: transform .2s, box-shadow .2s; white-space: nowrap }
 .promo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2) }
 
@@ -191,6 +191,57 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.06) }
 .feat-item p { font-size: .8rem; color: var(--fg-muted) }
 @media (max-width: 768px) { .feat-grid { grid-template-columns: repeat(2, 1fr) } }
 @media (max-width: 400px) { .feat-grid { grid-template-columns: 1fr } }
+
+/* ─── FAQ ─── */
+.faq { padding-block: 5rem }
+.faq-list { max-width: 720px; margin: 0 auto }
+.faq-item { border-bottom: 1px solid var(--border) }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; cursor: pointer; background: none; border: none; width: 100%; text-align: left; font-size: .95rem; font-weight: 600; color: var(--fg); font-family: var(--font-body); gap: 1rem }
+.faq-q svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--fg-muted); transition: transform .3s }
+.faq-item.open .faq-q svg { transform: rotate(45deg) }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s; padding: 0 0 0 0 }
+.faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.25rem }
+.faq-a p { font-size: .9rem; color: var(--fg-muted); line-height: 1.7 }
+
+/* ─── INFO PAGES (Livraison, Retours) ─── */
+.info-section { padding-block: 5rem }
+.info-section:nth-child(even) { background: var(--bg-alt) }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; max-width: 900px; margin: 0 auto }
+.info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem }
+.info-card h4 { font-size: 1rem; margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem }
+.info-card h4 svg { width: 20px; height: 20px; color: var(--accent) }
+.info-card p, .info-card li { font-size: .9rem; color: var(--fg-muted); line-height: 1.7 }
+.info-card ul { list-style: none; margin-top: .5rem }
+.info-card li { padding-left: 1.25rem; position: relative; margin-bottom: .35rem }
+.info-card li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700 }
+.info-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem }
+.info-step { text-align: center; padding: 1.5rem 1rem }
+.info-step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; margin: 0 auto .75rem }
+.info-step h4 { font-size: .9rem; margin-bottom: .25rem }
+.info-step p { font-size: .8rem; color: var(--fg-muted) }
+@media (max-width: 640px) {
+  .info-grid { grid-template-columns: 1fr }
+  .info-steps { grid-template-columns: 1fr }
+}
+
+/* ─── CONTACT ─── */
+.contact { padding-block: 5rem; background: var(--bg-alt) }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start }
+.contact-info h3 { font-size: 1.15rem; margin-bottom: 1.25rem }
+.ci-item { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: 1.25rem }
+.ci-item svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--accent); margin-top: 2px }
+.ci-item p { font-size: .9rem; color: var(--fg-muted); line-height: 1.6 }
+.ci-item strong { color: var(--fg); font-weight: 500; display: block }
+.form-group { margin-bottom: 1.1rem }
+.form-group label { display: block; font-size: .8rem; font-weight: 500; margin-bottom: .4rem }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: .75rem 1rem; border: 1.5px solid var(--border); border-radius: .625rem; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: .9rem; transition: border-color .2s }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent) }
+.form-group textarea { resize: vertical; min-height: 90px }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem }
+@media (max-width: 640px) {
+  .contact-grid { grid-template-columns: 1fr }
+  .form-row { grid-template-columns: 1fr }
+}
 
 /* ─── NEWSLETTER ─── */
 .newsletter { padding-block: 4rem }
@@ -219,7 +270,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.06) }
 .cart-item-info { flex: 1; min-width: 0 }
 .cart-item-name { font-weight: 600; font-size: .85rem; margin-bottom: .2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
 .cart-item-price { font-size: .85rem; color: var(--accent); font-weight: 600 }
-.cart-item-qty { display: flex; align-items: center; gap: .5rem }
+.cart-item-qty { display: flex; align-items: center; gap: .5rem; margin-top: .35rem }
 .qty-btn { width: 28px; height: 28px; border-radius: .375rem; border: 1px solid var(--border); background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 600; color: var(--fg); transition: border-color .2s }
 .qty-btn:hover { border-color: var(--accent) }
 .qty-val { font-size: .85rem; font-weight: 600; min-width: 20px; text-align: center }
@@ -231,6 +282,54 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.06) }
 .cart-total span { font-size: .9rem; color: var(--fg-muted) }
 .cart-total strong { font-family: var(--font-display); font-size: 1.3rem }
 .cart-checkout { width: 100% }
+
+/* ─── CHECKOUT OVERLAY ─── */
+.checkout-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 300; opacity: 0; pointer-events: none; transition: opacity .3s; overflow-y: auto }
+.checkout-overlay.open { opacity: 1; pointer-events: all }
+.checkout-container { max-width: 960px; margin: 0 auto; padding: 2rem 16px; min-height: 100vh }
+.checkout-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem }
+.checkout-top .logo { font-size: 1.3rem }
+.checkout-back { display: flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 500; color: var(--fg-muted); background: none; border: none; transition: color .2s }
+.checkout-back:hover { color: var(--fg) }
+.checkout-back svg { width: 18px; height: 18px }
+.checkout-steps { display: flex; justify-content: center; gap: .5rem; margin-bottom: 3rem }
+.ck-step { display: flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 500; color: var(--fg-muted) }
+.ck-step.active { color: var(--accent); font-weight: 600 }
+.ck-step.done { color: var(--success) }
+.ck-step-num { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .75rem; transition: all .3s }
+.ck-step.active .ck-step-num { background: var(--accent); color: #fff; border-color: var(--accent) }
+.ck-step.done .ck-step-num { background: var(--success); color: #fff; border-color: var(--success) }
+.ck-step-line { width: 40px; height: 2px; background: var(--border); border-radius: 1px }
+.ck-step-line.done { background: var(--success) }
+.checkout-body { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: start }
+.ck-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem }
+.ck-panel h3 { font-size: 1.1rem; margin-bottom: 1.5rem }
+.ck-summary-item { display: flex; gap: .75rem; padding: .75rem 0; border-bottom: 1px solid var(--border); align-items: center }
+.ck-summary-img { width: 50px; height: 50px; border-radius: .375rem; overflow: hidden; background: var(--bg-alt); flex-shrink: 0 }
+.ck-summary-img img { width: 100%; height: 100%; object-fit: cover }
+.ck-summary-name { flex: 1; font-size: .85rem; font-weight: 500 }
+.ck-summary-price { font-size: .85rem; font-weight: 600; white-space: nowrap }
+.ck-summary-line { display: flex; justify-content: space-between; padding: .5rem 0; font-size: .85rem; color: var(--fg-muted) }
+.ck-summary-total { display: flex; justify-content: space-between; padding: .75rem 0; font-size: 1.1rem; font-weight: 700; border-top: 2px solid var(--border); margin-top: .5rem }
+.ck-form-step { display: none }
+.ck-form-step.active { display: block }
+.ck-nav { display: flex; gap: .75rem; margin-top: 1.5rem }
+.ck-nav .btn { flex: 1 }
+
+/* Confirmation */
+.ck-confirm { text-align: center; padding: 2rem }
+.ck-confirm-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--success); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; animation: pop .5s cubic-bezier(.4,0,.2,1) }
+@keyframes pop { 0% { transform: scale(0) } 60% { transform: scale(1.2) } 100% { transform: scale(1) } }
+.ck-confirm-icon svg { width: 36px; height: 36px; color: #fff }
+.ck-confirm h2 { font-size: 1.5rem; margin-bottom: .5rem }
+.ck-confirm p { color: var(--fg-muted); font-size: .9rem; margin-bottom: .25rem }
+.ck-confirm-order { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--accent); margin: 1rem 0 2rem; padding: .6rem 1.5rem; background: var(--accent-light); border-radius: .5rem; display: inline-block }
+
+@media (max-width: 768px) {
+  .checkout-body { grid-template-columns: 1fr }
+  .checkout-steps { flex-wrap: wrap; justify-content: center }
+  .ck-step span { display: none }
+}
 
 /* ─── FOOTER ─── */
 footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem }
@@ -247,7 +346,7 @@ footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem 
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr } }
 
 /* ─── TOAST ─── */
-.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--fg); color: var(--bg); padding: .75rem 1.5rem; border-radius: .75rem; font-size: .85rem; font-weight: 500; display: flex; align-items: center; gap: .5rem; z-index: 300; transition: transform .4s cubic-bezier(.4,0,.2,1); box-shadow: 0 8px 32px rgba(0,0,0,.2) }
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--fg); color: var(--bg); padding: .75rem 1.5rem; border-radius: .75rem; font-size: .85rem; font-weight: 500; display: flex; align-items: center; gap: .5rem; z-index: 400; transition: transform .4s cubic-bezier(.4,0,.2,1); box-shadow: 0 8px 32px rgba(0,0,0,.2) }
 .toast.show { transform: translateX(-50%) translateY(0) }
 .toast svg { width: 18px; height: 18px; color: var(--success) }
 </style>
@@ -277,6 +376,8 @@ footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem 
   <button class="mobile-close" id="closeMenu" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   <a href="#categories" class="mobile-link">Catégories</a>
   <a href="#boutique" class="mobile-link">Boutique</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#contact" class="mobile-link">Contact</a>
   <a href="#" class="mobile-link" onclick="toggleCart()">Panier</a>
 </div>
 
@@ -505,7 +606,7 @@ footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem 
   <div class="container">
     <div class="feat-grid reveal">
       <div class="feat-item">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8l4 2.5v5L16 18"/></svg></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 18H3a2 2 0 01-2-2V8a2 2 0 012-2h3.19M15 6h2a2 2 0 012 2v3"/><path d="M21 14v2a2 2 0 01-2 2h-3"/><line x1="1" y1="1" x2="23" y2="23"/><path d="M16 8l-8 8"/><circle cx="12" cy="12" r="3"/></svg></div>
         <h4>Livraison gratuite</h4>
         <p>Dès 50 € d'achat en France</p>
       </div>
@@ -523,6 +624,193 @@ footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem 
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
         <h4>Support 7j/7</h4>
         <p>Réponse sous 24h</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions fréquentes</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Quels sont les délais de livraison ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>La livraison standard est de 3 à 5 jours ouvrés en France métropolitaine. La livraison express (24-48h) est disponible pour 6,99 €. Les commandes passées avant 14h sont expédiées le jour même.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Comment retourner un produit ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Vous disposez de 30 jours après réception pour retourner un article. Rendez-vous dans votre espace client, sélectionnez la commande concernée et imprimez l'étiquette de retour prépayée. Le remboursement est effectué sous 5 jours ouvrés.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Quels moyens de paiement acceptez-vous ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Nous acceptons les cartes Visa, Mastercard, American Express ainsi que PayPal et Apple Pay. Tous les paiements sont sécurisés par un chiffrement SSL 256 bits.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Les produits sont-ils garantis ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Tous nos produits tech bénéficient d'une garantie constructeur de 2 ans. Les articles de mode et maison sont couverts par notre garantie satisfaction de 30 jours.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Livrez-vous à l'international ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Oui, nous livrons dans toute l'Union Européenne, en Suisse et au Royaume-Uni. Les frais de port et délais varient selon la destination. Consultez notre page livraison pour les détails par pays.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Comment utiliser un code promo ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Ajoutez vos articles au panier, puis lors du checkout, entrez votre code promo dans le champ dédié à l'étape paiement. La réduction est appliquée immédiatement sur le total de votre commande.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON -->
+<section class="info-section" id="livraison">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
+      <div class="section-label">Livraison</div>
+      <h2 class="section-title">Informations de livraison</h2>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8l4 2.5v5L16 18"/></svg>Livraison standard</h4>
+        <p>3 à 5 jours ouvrés</p>
+        <ul>
+          <li>Gratuite dès 50 € d'achat</li>
+          <li>4,99 € en dessous de 50 €</li>
+          <li>Suivi par email et SMS</li>
+          <li>Livraison en point relais ou à domicile</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Livraison express</h4>
+        <p>24 à 48 heures</p>
+        <ul>
+          <li>6,99 € — toute commande</li>
+          <li>Commandez avant 14h, expédié le jour même</li>
+          <li>Livraison à domicile uniquement</li>
+          <li>Disponible en France métropolitaine</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-steps reveal">
+      <div class="info-step">
+        <div class="info-step-num">1</div>
+        <h4>Commande validée</h4>
+        <p>Confirmation par email instantanée</p>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">2</div>
+        <h4>Préparation</h4>
+        <p>Emballage soigné sous 24h</p>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">3</div>
+        <h4>Livraison</h4>
+        <p>Suivi en temps réel jusqu'à chez vous</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETOURS -->
+<section class="info-section" id="retours" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
+      <div class="section-label">Retours</div>
+      <h2 class="section-title">Politique de retour</h2>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>Retour gratuit sous 30 jours</h4>
+        <p>Si un article ne vous convient pas, retournez-le gratuitement dans son emballage d'origine sous 30 jours.</p>
+        <ul>
+          <li>Étiquette de retour prépayée</li>
+          <li>Remboursement sous 5 jours ouvrés</li>
+          <li>Échange possible selon disponibilité</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantie qualité</h4>
+        <p>Tous nos produits sont vérifiés avant expédition et bénéficient d'une garantie selon leur catégorie.</p>
+        <ul>
+          <li>Tech : garantie constructeur 2 ans</li>
+          <li>Mode & Maison : garantie satisfaction 30 jours</li>
+          <li>SAV joignable 7j/7</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-steps reveal">
+      <div class="info-step">
+        <div class="info-step-num">1</div>
+        <h4>Demande en ligne</h4>
+        <p>Depuis votre espace client</p>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">2</div>
+        <h4>Envoi du colis</h4>
+        <p>Étiquette prépayée par email</p>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">3</div>
+        <h4>Remboursement</h4>
+        <p>Sous 5 jours après réception</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:2.5rem">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Besoin d'aide ?</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <form id="contactForm" onsubmit="event.preventDefault();this.style.display='none';document.getElementById('contactConfirm').style.display='block'">
+        <div class="form-row">
+          <div class="form-group"><label>Nom complet</label><input type="text" required placeholder="Votre nom"></div>
+          <div class="form-group"><label>Email</label><input type="email" required placeholder="votre@email.com"></div>
+        </div>
+        <div class="form-group">
+          <label>Sujet</label>
+          <select required>
+            <option value="" disabled selected>Choisir un sujet</option>
+            <option>Question sur un produit</option>
+            <option>Suivi de commande</option>
+            <option>Retour / Échange</option>
+            <option>Problème de paiement</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Décrivez votre demande..." required></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Envoyer le message</button>
+      </form>
+      <div id="contactConfirm" style="display:none;text-align:center;padding:3rem;background:var(--accent-light);border-radius:var(--radius)">
+        <div style="font-size:2.5rem;margin-bottom:.75rem">✓</div>
+        <h3 style="margin-bottom:.5rem">Message envoyé !</h3>
+        <p style="color:var(--fg-muted)">Notre équipe vous répondra sous 24 heures.</p>
+      </div>
+      <div class="contact-info">
+        <h3>Nos coordonnées</h3>
+        <div class="ci-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <p><strong>Email</strong>support@nova-boutique.fr</p>
+        </div>
+        <div class="ci-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <p><strong>Téléphone</strong>+33 1 86 76 00 00<br><span style="font-size:.8rem">Lun — Ven : 9h — 18h</span></p>
+        </div>
+        <div class="ci-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <p><strong>Chat en direct</strong>Disponible 7j/7 de 9h à 21h<br><span style="font-size:.8rem">Temps de réponse moyen : 2 min</span></p>
+        </div>
+        <div class="ci-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <p><strong>Horaires du support</strong>Lun — Ven : 9h — 18h<br>Sam — Dim : 10h — 16h</p>
+        </div>
       </div>
     </div>
   </div>
@@ -553,19 +841,19 @@ footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem 
     <div class="footer-col">
       <h4>Boutique</h4>
       <ul>
-        <li><a href="#">Nouveautés</a></li>
-        <li><a href="#">Tech</a></li>
-        <li><a href="#">Mode</a></li>
-        <li><a href="#">Maison</a></li>
+        <li><a href="#boutique">Nouveautés</a></li>
+        <li><a href="#" onclick="filterProducts('tech');document.getElementById('boutique').scrollIntoView({behavior:'smooth'});return false">Tech</a></li>
+        <li><a href="#" onclick="filterProducts('mode');document.getElementById('boutique').scrollIntoView({behavior:'smooth'});return false">Mode</a></li>
+        <li><a href="#" onclick="filterProducts('maison');document.getElementById('boutique').scrollIntoView({behavior:'smooth'});return false">Maison</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Aide</h4>
       <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Livraison</a></li>
-        <li><a href="#">Retours</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#livraison">Livraison</a></li>
+        <li><a href="#retours">Retours</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -601,7 +889,113 @@ footer { background: var(--fg); color: var(--bg); padding-block: 3.5rem 1.75rem 
       <span>Total</span>
       <strong id="cartTotal">0,00 €</strong>
     </div>
-    <button class="btn btn-primary cart-checkout" onclick="showToast('Redirection vers le paiement...')">Commander</button>
+    <button class="btn btn-primary cart-checkout" onclick="openCheckout()">Commander</button>
+  </div>
+</div>
+
+<!-- CHECKOUT OVERLAY -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-container">
+    <div class="checkout-top">
+      <div class="logo">N<span>O</span>VA</div>
+      <button class="checkout-back" onclick="closeCheckout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Retour à la boutique</button>
+    </div>
+
+    <div class="checkout-steps" id="ckSteps">
+      <div class="ck-step active" data-step="1"><div class="ck-step-num">1</div><span>Informations</span></div>
+      <div class="ck-step-line"></div>
+      <div class="ck-step" data-step="2"><div class="ck-step-num">2</div><span>Livraison</span></div>
+      <div class="ck-step-line"></div>
+      <div class="ck-step" data-step="3"><div class="ck-step-num">3</div><span>Paiement</span></div>
+    </div>
+
+    <div class="checkout-body">
+      <div class="ck-panel">
+
+        <!-- Step 1: Info -->
+        <div class="ck-form-step active" data-step="1">
+          <h3>Vos informations</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Prénom</label><input type="text" id="ckFirstName" required placeholder="Jean"></div>
+            <div class="form-group"><label>Nom</label><input type="text" id="ckLastName" required placeholder="Dupont"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" id="ckEmail" required placeholder="jean@email.com"></div>
+          <div class="form-group"><label>Téléphone</label><input type="tel" id="ckPhone" placeholder="+33 6 12 34 56 78"></div>
+          <div class="ck-nav"><button class="btn btn-primary" onclick="nextStep(2)">Continuer vers la livraison</button></div>
+        </div>
+
+        <!-- Step 2: Shipping -->
+        <div class="ck-form-step" data-step="2">
+          <h3>Adresse de livraison</h3>
+          <div class="form-group"><label>Adresse</label><input type="text" id="ckAddress" required placeholder="12 Rue de la Paix"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Code postal</label><input type="text" id="ckZip" required placeholder="75001"></div>
+            <div class="form-group"><label>Ville</label><input type="text" id="ckCity" required placeholder="Paris"></div>
+          </div>
+          <div class="form-group">
+            <label>Mode de livraison</label>
+            <select id="ckShipping">
+              <option value="0">Standard — Gratuit (3-5 jours)</option>
+              <option value="6.99">Express — 6,99 € (24-48h)</option>
+            </select>
+          </div>
+          <div class="ck-nav">
+            <button class="btn btn-outline" onclick="nextStep(1)">Retour</button>
+            <button class="btn btn-primary" onclick="nextStep(3)">Continuer vers le paiement</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div class="ck-form-step" data-step="3">
+          <h3>Paiement sécurisé</h3>
+          <div style="display:flex;gap:.5rem;align-items:center;margin-bottom:1.25rem;padding:.6rem 1rem;background:var(--accent-light);border-radius:.5rem;font-size:.8rem;color:var(--accent);font-weight:500">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px;flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Chiffrement SSL 256 bits — Vos données sont protégées
+          </div>
+          <div class="form-group"><label>Numéro de carte</label><input type="text" id="ckCard" maxlength="19" placeholder="1234 5678 9012 3456" oninput="formatCard(this)"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Expiration</label><input type="text" id="ckExp" maxlength="5" placeholder="MM/AA" oninput="formatExp(this)"></div>
+            <div class="form-group"><label>CVV</label><input type="text" id="ckCvv" maxlength="3" placeholder="123"></div>
+          </div>
+          <div class="form-group"><label>Nom sur la carte</label><input type="text" id="ckCardName" placeholder="JEAN DUPONT" style="text-transform:uppercase"></div>
+          <div class="form-group" style="margin-top:1rem">
+            <label>Code promo</label>
+            <div style="display:flex;gap:.5rem">
+              <input type="text" id="ckPromo" placeholder="Entrez votre code">
+              <button class="btn btn-outline" onclick="applyPromo()" style="white-space:nowrap">Appliquer</button>
+            </div>
+            <div id="promoMsg" style="font-size:.8rem;margin-top:.35rem"></div>
+          </div>
+          <div class="ck-nav">
+            <button class="btn btn-outline" onclick="nextStep(2)">Retour</button>
+            <button class="btn btn-primary" onclick="placeOrder()">Payer <span id="ckPayTotal"></span></button>
+          </div>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="ck-form-step" data-step="4">
+          <div class="ck-confirm">
+            <div class="ck-confirm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h2>Commande confirmée !</h2>
+            <p>Merci pour votre achat. Un email de confirmation a été envoyé.</p>
+            <div class="ck-confirm-order" id="ckOrderNum">N° NOV-2026-XXXXX</div>
+            <p style="font-size:.85rem;color:var(--fg-muted)">Vous recevrez un email de suivi dès l'expédition de votre colis.</p>
+            <button class="btn btn-primary" onclick="closeCheckout();resetOrder()" style="margin-top:1.5rem">Retour à la boutique</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Order Summary -->
+      <div class="ck-panel" id="ckSummaryPanel">
+        <h3>Récapitulatif</h3>
+        <div id="ckSummaryItems"></div>
+        <div class="ck-summary-line" style="margin-top:.75rem"><span>Sous-total</span><span id="ckSubtotal"></span></div>
+        <div class="ck-summary-line"><span>Livraison</span><span id="ckShipCost">Gratuit</span></div>
+        <div class="ck-summary-line" id="ckPromoLine" style="display:none;color:var(--success)"><span>Promo NOVA15</span><span id="ckPromoAmount"></span></div>
+        <div class="ck-summary-total"><span>Total</span><span id="ckTotal"></span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -614,12 +1008,9 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
 // Mobile menu
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenuBtn = document.getElementById('closeMenu');
-menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
 
 // Scroll reveal
 const obs = new IntersectionObserver(entries => {
@@ -638,7 +1029,7 @@ function showToast(msg) {
 // Wishlist
 function toggleWish(btn) {
   btn.classList.toggle('liked');
-  showToast(btn.classList.contains('liked') ? 'Ajouté aux favoris ♥' : 'Retiré des favoris');
+  showToast(btn.classList.contains('liked') ? 'Ajouté aux favoris' : 'Retiré des favoris');
 }
 
 // Filter
@@ -659,8 +1050,10 @@ document.getElementById('searchInput').addEventListener('input', e => {
   if (!q) document.querySelector('.cat-card[data-cat="all"]').classList.add('active');
 });
 
-// Cart
+// ─── CART ───
 let cart = [];
+let promoApplied = false;
+
 function toggleCart() {
   document.getElementById('cartOverlay').classList.toggle('open');
   document.getElementById('cartSidebar').classList.toggle('open');
@@ -681,7 +1074,7 @@ function addToCart(btn) {
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
   }, 1200);
   updateCart();
-  showToast(`${name} ajouté au panier`);
+  showToast(name + ' ajouté au panier');
 }
 
 function updateCart() {
@@ -704,39 +1097,135 @@ function updateCart() {
   }
   emptyEl.style.display = 'none';
   footerEl.style.display = '';
-  totalEl.textContent = totalPrice.toFixed(2).replace('.', ',') + ' €';
+  totalEl.textContent = fmt(totalPrice);
   itemsEl.querySelectorAll('.cart-item').forEach(el => el.remove());
   cart.forEach((item, idx) => {
     const div = document.createElement('div');
     div.className = 'cart-item';
-    div.innerHTML = `
-      <div class="cart-item-img"><img src="${item.img}" alt="${item.name}"></div>
-      <div class="cart-item-info">
-        <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-price">${item.price.toFixed(2).replace('.', ',')} €</div>
-        <div class="cart-item-qty">
-          <button class="qty-btn" onclick="changeQty(${idx},-1)">−</button>
-          <span class="qty-val">${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
-        </div>
-      </div>
-      <button class="cart-item-del" onclick="removeItem(${idx})" aria-label="Supprimer"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>`;
+    div.innerHTML = '<div class="cart-item-img"><img src="'+item.img+'" alt="'+item.name+'"></div><div class="cart-item-info"><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price">'+fmt(item.price)+'</div><div class="cart-item-qty"><button class="qty-btn" onclick="changeQty('+idx+',-1)">−</button><span class="qty-val">'+item.qty+'</span><button class="qty-btn" onclick="changeQty('+idx+',1)">+</button></div></div><button class="cart-item-del" onclick="removeItem('+idx+')" aria-label="Supprimer"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
     itemsEl.appendChild(div);
   });
 }
 
-function changeQty(idx, delta) {
-  cart[idx].qty += delta;
-  if (cart[idx].qty < 1) cart.splice(idx, 1);
-  updateCart();
+function changeQty(idx, delta) { cart[idx].qty += delta; if (cart[idx].qty < 1) cart.splice(idx, 1); updateCart(); }
+function removeItem(idx) { const n = cart[idx].name; cart.splice(idx, 1); updateCart(); showToast(n + ' retiré du panier'); }
+function fmt(n) { return n.toFixed(2).replace('.', ',') + ' €'; }
+
+// ─── CHECKOUT ───
+let ckStep = 1;
+
+function openCheckout() {
+  if (cart.length === 0) return;
+  toggleCart();
+  ckStep = 1;
+  promoApplied = false;
+  document.getElementById('ckPromoLine').style.display = 'none';
+  document.getElementById('promoMsg').textContent = '';
+  updateSteps();
+  updateCkSummary();
+  document.getElementById('checkoutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-function removeItem(idx) {
-  const name = cart[idx].name;
-  cart.splice(idx, 1);
-  updateCart();
-  showToast(`${name} retiré du panier`);
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').classList.remove('open');
+  document.body.style.overflow = '';
 }
+
+function nextStep(step) {
+  if (step > ckStep) {
+    const cur = document.querySelector('.ck-form-step.active');
+    const inputs = cur.querySelectorAll('input[required], select[required]');
+    for (const inp of inputs) { if (!inp.value.trim()) { inp.focus(); inp.style.borderColor = 'var(--danger)'; setTimeout(() => inp.style.borderColor = '', 2000); return; } }
+  }
+  ckStep = step;
+  updateSteps();
+  updateCkSummary();
+}
+
+function updateSteps() {
+  document.querySelectorAll('.ck-form-step').forEach(el => el.classList.toggle('active', parseInt(el.dataset.step) === ckStep));
+  document.querySelectorAll('.ck-step').forEach(el => {
+    const s = parseInt(el.dataset.step);
+    el.classList.toggle('active', s === ckStep);
+    el.classList.toggle('done', s < ckStep);
+  });
+  document.querySelectorAll('.ck-step-line').forEach((el, i) => el.classList.toggle('done', i + 1 < ckStep));
+  document.getElementById('ckSummaryPanel').style.display = ckStep === 4 ? 'none' : '';
+  document.getElementById('ckSteps').style.display = ckStep === 4 ? 'none' : '';
+}
+
+function updateCkSummary() {
+  const items = document.getElementById('ckSummaryItems');
+  items.innerHTML = '';
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+    items.innerHTML += '<div class="ck-summary-item"><div class="ck-summary-img"><img src="'+item.img+'" alt="'+item.name+'"></div><div class="ck-summary-name">'+item.name+' × '+item.qty+'</div><div class="ck-summary-price">'+fmt(item.price * item.qty)+'</div></div>';
+  });
+  const shipSel = document.getElementById('ckShipping');
+  const shipCost = shipSel ? parseFloat(shipSel.value) : 0;
+  let discount = 0;
+  if (promoApplied) { discount = subtotal * 0.15; document.getElementById('ckPromoAmount').textContent = '-' + fmt(discount); document.getElementById('ckPromoLine').style.display = ''; }
+  const total = subtotal + shipCost - discount;
+  document.getElementById('ckSubtotal').textContent = fmt(subtotal);
+  document.getElementById('ckShipCost').textContent = shipCost === 0 ? 'Gratuit' : fmt(shipCost);
+  document.getElementById('ckTotal').textContent = fmt(total);
+  const payBtn = document.getElementById('ckPayTotal');
+  if (payBtn) payBtn.textContent = fmt(total);
+}
+
+// Promo
+function applyPromo() {
+  const code = document.getElementById('ckPromo').value.trim().toUpperCase();
+  const msg = document.getElementById('promoMsg');
+  if (code === 'NOVA15') {
+    promoApplied = true;
+    msg.textContent = '✓ Code NOVA15 appliqué — -15% sur votre commande';
+    msg.style.color = 'var(--success)';
+    updateCkSummary();
+  } else {
+    msg.textContent = '✗ Code invalide';
+    msg.style.color = 'var(--danger)';
+  }
+}
+
+// Card formatting
+function formatCard(el) {
+  let v = el.value.replace(/\D/g, '').substring(0, 16);
+  el.value = v.replace(/(.{4})/g, '$1 ').trim();
+}
+function formatExp(el) {
+  let v = el.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0, 2) + '/' + v.substring(2);
+  el.value = v;
+}
+
+// Place order
+function placeOrder() {
+  const card = document.getElementById('ckCard').value.replace(/\s/g, '');
+  const exp = document.getElementById('ckExp').value;
+  const cvv = document.getElementById('ckCvv').value;
+  if (card.length < 16 || exp.length < 5 || cvv.length < 3) {
+    showToast('Veuillez remplir tous les champs de paiement');
+    return;
+  }
+  const orderNum = 'NOV-2026-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+  document.getElementById('ckOrderNum').textContent = 'N° ' + orderNum;
+  nextStep(4);
+}
+
+function resetOrder() {
+  cart = [];
+  promoApplied = false;
+  updateCart();
+  document.querySelectorAll('.ck-form-step input, .ck-form-step select').forEach(el => { if (el.tagName === 'SELECT') el.selectedIndex = 0; else el.value = ''; });
+  document.getElementById('promoMsg').textContent = '';
+  document.getElementById('ckPromoLine').style.display = 'none';
+}
+
+// Update summary on shipping change
+document.getElementById('ckShipping')?.addEventListener('change', updateCkSummary);
 </script>
 
 </body>
